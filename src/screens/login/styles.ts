@@ -40,6 +40,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         textAlign: 'center',
+    },
+    textColor: {
+        color: 'white',
+        textAlign: 'right',
+        fontSize: 15,
     }
     
 });
