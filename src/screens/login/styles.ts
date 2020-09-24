@@ -46,8 +46,13 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'right',
         fontSize: 15,
+    },
+    errors: {
+        color:"red", 
+        fontSize: 15, 
+        textAlign:"right",
+        // backgroundColor: '#3CB371',
     }
-    
 });
 
 export default styles;

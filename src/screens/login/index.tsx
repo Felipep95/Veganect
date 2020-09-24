@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
@@ -16,19 +16,21 @@ interface User {
 }
 
 const Login = () => {
+    
     const nav = useNavigation();
+    const [error, setError] = useState('');
 
     async function logar (data: User)  {
-        console.log("Entrou na função!");
+        setError("");
         await new Promise (resolve => setTimeout(() => resolve(), 2000))
          
         if (data.email == 'teste@teste.com' && data.password == '123456'){
-            nav.navigate("signIn")
+            nav.navigate("signOn")
             console.log('teste');
         }else 
-            console.log('Email ou senha invalido');
+            setError('Erro: Email ou senha invalido');
     }
-
+    
     return (
         <>
             <View style={styles.container}>
@@ -47,11 +49,9 @@ const Login = () => {
                         password: Yup.string().required('O campo Senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!')
                     })}
                     onSubmit={logar}
-                    
-                    
                 >
                     { ({values, handleChange, errors, handleSubmit, isSubmitting, isValid, touched, handleBlur }) => (
-                         <View style={{flex:0.5, width: '100%', padding: 30}} >
+                         <View style={{ flex:0.5, width: '100%', padding: 30 }} >
                             <Input
                                 inputStyle={styles.inputConfig}
                                 placeholder="Email"
@@ -60,7 +60,8 @@ const Login = () => {
                                 onChangeText={handleChange("email")}
                                 onBlur={handleBlur("email")}
                             />
-                            { touched.email && <Text style={styles.textColor}>{errors.email}</Text>}
+                            { touched.email && <Text style={styles.errors}>{errors.email}</Text>}
+                            
                             <Input
                                 inputStyle={styles.inputConfig}
                                 placeholder="Senha"
@@ -70,19 +71,20 @@ const Login = () => {
                                 onChangeText={handleChange("password")}
                                 onBlur={handleBlur("password")}
                             /> 
-                            { touched.password && <Text style={styles.textColor}>{errors.password}</Text>}
+
+                            { touched.password && <Text style={styles.errors}>{errors.password}</Text>}
                             
                             { isSubmitting && <ActivityIndicator size= {30} />}
                             { !isSubmitting && <Button title='Login' disabled={!isValid} buttonStyle={styles.buttonColor} onPress={() => handleSubmit()}></Button>}
-                            
-                            
+                            {error != "" && <Text style={styles.errors}>{error}</Text>}
                      </View>
+                     
                     )}
-               
+                
                 </Formik>
 
                 <TouchableOpacity style={{display: 'flex', justifyContent: 'center'}}>
-                                <Text style={styles.textCreatAccount}>Criar conta</Text>
+                    <Text style={styles.textCreatAccount}>Criar conta</Text>
                 </TouchableOpacity>
                 
             </View>

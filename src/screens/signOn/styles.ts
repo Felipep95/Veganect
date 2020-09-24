@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
+        backgroundColor: '#2E8B57',
     },
     placeHolderColor: {
         color: 'white',
@@ -46,21 +47,17 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'right',
         fontSize: 15,
+    },
+    errors: {
+        color:"red", 
+        fontSize: 15, 
+        textAlign:"right"
+    },
+    viewInputConfig: {
+        flex:0.5, 
+        width: '100%', 
+        padding: 30,
     }
-    // containerInput: {
-    //     backgroundColor: 'white',
-    //     borderRadius: 30,
-    //     padding: 5,
-    //     marginBottom: 5,
-    // },
-    // inputConfig: {
-    //     paddingLeft: 10,
-    //     color: 'white',
-    //     width: '100%'
-    // },
-    // iconColor: {
-    //     color: 'white',
-    // },
 });
 
 export default styles

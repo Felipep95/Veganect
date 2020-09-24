@@ -25,7 +25,7 @@ export function input (props: inputProps) {
             onChangeText={(text) => props.onChangeText(text)}
             secureTextEntry={props.password}
             onBlur={props.onBlur}
-            inputStyle={styles.inputConfig}
+            // inputStyle={styles.inputConfig}
          />
       </View>
     );
