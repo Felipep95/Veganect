@@ -4,42 +4,54 @@ import { Input, Button } from 'react-native-elements';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigation } from '@react-navigation/native';
+
+// import input from '../../components/Input';
 
 import styles from './styles'; 
 
+interface User {
+    email: string;
+    password: string;
+}
+
 const Login = () => {
+    const nav = useNavigation();
 
-    const logar = async (dados: any) => {
-
+    async function logar (data: User)  {
+        console.log("Entrou na função!");
         await new Promise (resolve => setTimeout(() => resolve(), 2000))
-         console.log(dados);
-        if (dados.email == 'teste@teste.com' && dados.senha == '123456')
-            console.log('Logado com sucesso');
-        else 
+         
+        if (data.email == 'teste@teste.com' && data.password == '123456'){
+            nav.navigate("signIn")
+            console.log('teste');
+        }else 
             console.log('Email ou senha invalido');
     }
 
     return (
         <>
             <View style={styles.container}>
-                <View>
+
                     <Image 
                         source={require('../../../assets/images/carrot.png')}
                         style={styles.imageConfig}
                     />
+                    
                     <Text style={styles.textConfig}>Veganect</Text>
-                </View>
 
                 <Formik 
-                    initialValues={{email: '', senha: ''}}
+                    initialValues={{email: '', password: ''}}
                     validationSchema={Yup.object().shape({
                         email: Yup.string().required('O campo email é obrigatório!').email('Precisa ser um email válido!'),
-                        senha: Yup.string().required('O campo Senha é obrigatório!').min(8, 'A senha precisa ter no mínimo 8 caracteres!')
+                        password: Yup.string().required('O campo Senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!')
                     })}
                     onSubmit={logar}
+                    
+                    
                 >
                     { ({values, handleChange, errors, handleSubmit, isSubmitting, isValid, touched, handleBlur }) => (
-                         <View>
+                         <View style={{flex:0.5, width: '100%', padding: 30}} >
                             <Input
                                 inputStyle={styles.inputConfig}
                                 placeholder="Email"
@@ -55,21 +67,23 @@ const Login = () => {
                                 placeholderTextColor="white"
                                 leftIcon={{ type: 'font-awesome', name: 'lock', iconStyle:styles.iconColor }}
                                 secureTextEntry={true}
-                                onChangeText={handleChange("senha")}
-                                onBlur={handleBlur("senha")}
+                                onChangeText={handleChange("password")}
+                                onBlur={handleBlur("password")}
                             /> 
-                            { touched.senha && <Text style={styles.textColor}>{errors.senha}</Text>}
+                            { touched.password && <Text style={styles.textColor}>{errors.password}</Text>}
                             
                             { isSubmitting && <ActivityIndicator size= {30} />}
                             { !isSubmitting && <Button title='Login' disabled={!isValid} buttonStyle={styles.buttonColor} onPress={() => handleSubmit()}></Button>}
                             
-                            <TouchableOpacity>
-                                <Text style={styles.textCreatAccount}>Criar conta</Text>
-                            </TouchableOpacity>
+                            
                      </View>
                     )}
                
                 </Formik>
+
+                <TouchableOpacity style={{display: 'flex', justifyContent: 'center'}}>
+                                <Text style={styles.textCreatAccount}>Criar conta</Text>
+                </TouchableOpacity>
                 
             </View>
         </>
