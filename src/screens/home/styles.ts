@@ -38,10 +38,19 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
     },
+    cardImage: {
+        height: 300,
+        width: 300,
+    },
     textColor: {
         justifyContent: 'center',
         color: 'white',
         textAlign: 'center',
+    },
+    viewConfig: {
+        margin: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
     }
 })
 

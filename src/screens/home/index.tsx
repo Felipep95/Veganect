@@ -19,40 +19,46 @@ const Home = () => {
                 <Text style={styles.welcome}> Bem vindo (a) {email}</Text>
             </View>
             <Text style={styles.recipes}>Receitas</Text>
-            <SafeAreaView style={styles.container}>
-                 <ScrollView contentContainerStyle={styles.middleContainer}>
+            {/* <SafeAreaView style={styles.container}> */}
+                 <ScrollView contentContainerStyle={styles.middleContainer} alwaysBounceHorizontal={true}>
+                    <View style={styles.viewConfig}>
+                        <Card containerStyle={[styles.cardConfig]}>
+                            <Card.Title style={styles.textColor}>Cheesecake De Maçã</Card.Title>
+                            <Card.Divider/>
+                            <Card.Image source={require('./../../../src/assets/receitas/doces/cheesecake_de_maca.jpg')} style={styles.cardImage}/>
+                            <Text style={styles.textColor}>
+                                Cheesecake De Maçã...
+                            </Text>
+                        </Card>
+                    </View>
+                    <View style={styles.viewConfig}>
+                        <Card containerStyle={[styles.cardConfig]}>
+                            <Card.Title style={styles.textColor}>Primavera De Aspagos</Card.Title>
+                            <Card.Divider/>
+                            <Card.Image source={require('./../../../src/assets/receitas/saladas/primavera_de_aspagos.jpg')} style={styles.cardImage}/>
+                            <Text style={styles.textColor}>
+                                Salada de Aspargos...
+                                Salada de Aspargos...
+                                Salada de Aspargos...
+                            </Text>
+                        </Card>
+                    </View>
+                   <View style={styles.viewConfig}>
                     <Card containerStyle={[styles.cardConfig]}>
-                        <Card.Title style={styles.textColor}>Cheesecake De Maçã</Card.Title>
-                        <Card.Divider/>
-                        <Card.Image source={require('./../../../src/assets/receitas/doces/cheesecake_de_maca.jpg')} style={{height: 300, width: 300}}/>
-                        <Text style={styles.textColor}>
-                            2 pacotes de biscoito tipo Maria (400g)
-                            1 colher (chá) de canela em pó
-                            1/2 xícara (chá) de margarina ou manteiga sem sal derretida
-                        </Text>
-                    </Card>
-                    <Card containerStyle={[styles.cardConfig]}>
-                        <Card.Title style={styles.textColor}>Primavera De Aspagos</Card.Title>
-                        <Card.Divider/>
-                        <Card.Image source={require('./../../../src/assets/receitas/saladas/primavera_de_aspagos.jpg')} style={{height: 300, width: 300}}/>
-                        <Text style={styles.textColor}>
-                            2 pacotes de biscoito tipo Maria (400g)
-                            1 colher (chá) de canela em pó
-                            1/2 xícara (chá) de margarina ou manteiga sem sal derretida
-                        </Text>
-                    </Card>
-                    <Card containerStyle={[styles.cardConfig]}>
-                        <Card.Title style={styles.textColor}>Nhoque De Batata</Card.Title>
-                        <Card.Divider/>
-                        <Card.Image source={require('./../../../src/assets/receitas/salgados/nhoque_de_batata.jpg')} style={{height: 300, width: 300}}/>
-                        <Text style={styles.textColor}>
-                            2 pacotes de biscoito tipo Maria (400g)
-                            1 colher (chá) de canela em pó
-                            1/2 xícara (chá) de margarina ou manteiga sem sal derretida
-                        </Text>
-                    </Card>
+                            <Card.Title style={styles.textColor}>Nhoque De Batata</Card.Title>
+                            <Card.Divider/>
+                            <Card.Image source={require('./../../../src/assets/receitas/salgados/nhoque_de_batata.jpg')} style={styles.cardImage}/>
+                            <Text style={styles.textColor}>
+                                Nhoque De Batata...
+                            </Text>
+                        </Card>
+                   </View>
+
+                   
+
+
                 </ScrollView>
-            </SafeAreaView>
+            {/* </SafeAreaView> */}
             
             <Button buttonStyle={styles.buttonConfig} title="voltar" onPress={() => nav.goBack()}></Button>
 
