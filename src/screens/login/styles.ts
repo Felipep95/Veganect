@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     buttonColor: {
-        backgroundColor: '#3CB371'
+        backgroundColor: '#3CB371',
     },
     textConfig: {
         color: 'white',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         textAlign: 'center',
-        marginTop: 30
+        marginTop: 30,
     },
     textColor: {
         color: 'white',

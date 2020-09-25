@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import { View, Image, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
@@ -23,14 +23,12 @@ const Login = () => {
     async function logar (data: User)  {
         setError("");
         await new Promise (resolve => setTimeout(() => resolve(), 2000))
-         
         if (data.email == 'teste@teste.com' && data.password == '123456'){
-            nav.navigate("signOn")
-            console.log('teste');
+            nav.navigate('home', {email: data.email})
         }else 
             setError('Erro: Email ou senha invalido');
     }
-    
+
     return (
         <>
             <View style={styles.container}>
@@ -83,7 +81,7 @@ const Login = () => {
                 
                 </Formik>
 
-                <TouchableOpacity style={{display: 'flex', justifyContent: 'center'}}>
+                <TouchableOpacity style={{display: 'flex', justifyContent: 'center', marginTop:15}} onPress={() => nav.navigate("signOn")}>
                     <Text style={styles.textCreatAccount}>Criar conta</Text>
                 </TouchableOpacity>
                 

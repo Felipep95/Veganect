@@ -24,7 +24,7 @@ const signOn = () => {
 
     return (
         <>
-        <Text style={{padding: 10, backgroundColor: '#3CB371', color: 'white'}}>Cadastre-se</Text>
+        {/* <Text style={{padding: 10, marginTop: 10, backgroundColor: '#3CB371', color: 'white'}}>Cadastre-se</Text> */}
 
         <Formik
             initialValues={{name: '', email: '', password: '', confirmPassword: '' }}
