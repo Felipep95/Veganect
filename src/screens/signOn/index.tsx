@@ -19,12 +19,12 @@ const signOn = () => {
     const nav = useNavigation();
 
     const sendData = ( data: Data ) => {
-        nav.navigate("Login")
+        nav.navigate("login")
     }
 
     return (
         <>
-        {/* <Text style={{padding: 10, marginTop: 10, backgroundColor: '#3CB371', color: 'white'}}>Cadastre-se</Text> */}
+        
 
         <Formik
             initialValues={{name: '', email: '', password: '', confirmPassword: '' }}
@@ -78,9 +78,6 @@ const signOn = () => {
                     />
                     { touched.confirmPassword && <Text style={styles.errors}>{errors.confirmPassword}</Text>}
                     
-                    {/* <Text style={styles.errors}>{errors.confirmPassword}</Text> */}
-                    
-                            
                             { isSubmitting && <ActivityIndicator size= {30} />}
                             { !isSubmitting && <Button title='Cadastrar' disabled={!isValid} buttonStyle={styles.buttonColor} onPress={() => handleSubmit()}></Button>}
                 </View>

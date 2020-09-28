@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#2E8B57',
+        justifyContent: 'center',
     },
     welcome: {
         marginTop: 25,
@@ -12,10 +13,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
     },
-    middleContainer: {
-        flex: 1,
+    scrollViewConfig: {
         backgroundColor: '#2E8B57',
         justifyContent: 'center',
+        alignContent: 'center',
+        marginBottom: 50,
     },
     buttonColor: {
         backgroundColor: '#3CB371',
@@ -25,33 +27,38 @@ const styles = StyleSheet.create({
         backgroundColor: '#3CB371',
     },
     recipes: {
-        marginTop: 20,
+        marginTop: 30,
         color: 'white',
-        fontSize: 20,
+        fontSize: 30,
         textAlign: 'center',
     },
     cardConfig: {
-        borderRadius: 20,
         borderColor: '#3CB371',
-        color: 'white',
         backgroundColor: '#3CB371',
-        alignContent: 'center',
+        color: 'white',
+        borderRadius: 20,
+        alignItems: 'center',
         justifyContent: 'center',
     },
     cardImage: {
         height: 300,
         width: 300,
     },
-    textColor: {
+    cardTitle: {
+        color: 'white',
+        fontSize: 20
+    },
+    text: {
         justifyContent: 'center',
         color: 'white',
         textAlign: 'center',
     },
     viewConfig: {
+        flex: 1,
         margin: 10,
         flexDirection: 'row',
         justifyContent: 'center',
     }
 })
 
-export default styles
+export default styles 
