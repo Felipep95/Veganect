@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     welcome: {
-        marginTop: 25,
         color: 'white',
         fontSize: 20,
         textAlign: 'center',
@@ -27,13 +26,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#3CB371',
     },
     recipes: {
-        marginTop: 30,
+        marginTop: 10,
         color: 'white',
         fontSize: 30,
         textAlign: 'center',
     },
     cardConfig: {
-        borderColor: '#3CB371',
+        borderColor: 'white',
         backgroundColor: '#3CB371',
         color: 'white',
         borderRadius: 20,
@@ -42,23 +41,24 @@ const styles = StyleSheet.create({
     },
     cardImage: {
         height: 300,
-        width: 300,
+        width: 350,
     },
     cardTitle: {
         color: 'white',
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'center',
     },
     text: {
         justifyContent: 'center',
         color: 'white',
-        textAlign: 'center',
+        // textAlign: 'center',
     },
-    viewConfig: {
-        flex: 1,
-        margin: 10,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    }
+    // viewConfig: {
+    //     flex: 1,
+    //     margin: 10,
+    //     flexDirection: 'row',
+    //     justifyContent: 'center',
+    // }
 })
 
 export default styles 

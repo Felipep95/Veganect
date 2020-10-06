@@ -6,12 +6,14 @@ import home from '../screens/home';
 import signOn from '../screens/signOn';
 
 import Category from '../navigations/drawer-menu';
+import SettingsNavigation from '../navigations/settings';
 
 const Stack = createStackNavigator();
 
 export const MainNavigator = () => (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="login">
+        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="home">
+            <Stack.Screen name="teste" component={SettingsNavigation} />
             <Stack.Screen name="login" component={Login} />
             <Stack.Screen name="home" component={Category} /> 
             <Stack.Screen name="signOn" component={signOn} /> 

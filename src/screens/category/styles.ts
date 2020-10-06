@@ -34,6 +34,9 @@ const styles = StyleSheet.create ({
         color: 'white',
         fontSize: 20,
     },
+    buttonColor: {
+        backgroundColor: '#3CB371',
+    },
 })
 
 export default styles;
