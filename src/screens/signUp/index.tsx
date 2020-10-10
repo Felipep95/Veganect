@@ -15,7 +15,7 @@ interface Data {
     confirmPassword: string,
 }
 
-const signOn = () => {
+const signUp = () => {
     const nav = useNavigation();
 
     const sendData = ( data: Data ) => {
@@ -90,4 +90,4 @@ const signOn = () => {
     )
 };
 
-export default signOn
+export default signUp

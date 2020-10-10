@@ -1,43 +1,59 @@
 import React from 'react';
-import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import { Image, Linking, Text, View } from 'react-native';
+import { Button, Image, Linking, Text, View } from 'react-native';
+import { Icon, Avatar, Divider, ListItem } from 'react-native-elements';
 import { color } from 'react-native-reanimated';
-import { Icon, Avatar } from 'react-native-elements';
+// import {} from 'react-native-paper';
+
+import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
+
+import Home from '../../screens/home';
+
 
 import styles from './styles';
     
-  function CustomDrawerContent(props: any) {
-    return (
-    //   <DrawerContentScrollView contentContainerStyle={styles.drawerStyle} {...props}>
-    //     <DrawerItemList {...props}/>
-    //     <DrawerItem
-    //         label="Ajuda" 
-    //         <Icon color={color} size={size} name={focused ? 'heart' : 'heart-outline'} />
-    //         onPress={() => Linking.openURL('https://leilao-vegano.jumpseller.com/')}
-            
-    //     />
-    //     <Image 
-    //         source={require('../../../assets/images/carrot.png')}
-    //         style={styles.container}     
-    //     />
-    //   </DrawerContentScrollView>
-    <View style={styles.drawerStyle}>
-            <View style={styles.userInfo}>
-                <Avatar
-                    containerStyle={{backgroundColor: 'white', alignContent: 'center'}}
-                    size="xlarge"
-                    rounded
-                    title="MT"
-                    onPress={() => console.log("Works!")}
-                    activeOpacity={0.7}
-                    source={require('../../../assets/images/musicAppleProfile.jpg')}
-                    avatarStyle={styles.teste}
-                />
-                <Text style={styles.textConfig}>Felipe Pereira</Text>
-                <Text style={styles.textConfig}>Felipepereira95@hotmail.com</Text>
-            </View>
+    function CustomDrawerContent(props: any) {
 
-            <DrawerItemList {...props}/>
+    const nav = useNavigation();
+    
+    return (
+      <View>
+        <View style={styles.drawerStyle}>
+            <View style={styles.userInfo}>
+              <Avatar
+                  containerStyle={{backgroundColor: 'white', alignContent: 'center'}}
+                  size="xlarge"
+                  rounded
+                  title="Profile"
+                  onPress={() => console.log("Works!")}
+                  activeOpacity={0.7}
+                  source={require('../../../assets/images/profile-picture.png')}
+                  avatarStyle={styles.avatarSettings}
+              />
+              <Text style={styles.textConfig}>Felipe Pereira</Text>
+              <Text style={styles.textConfig}>Felipepereira95@hotmail.com</Text>
+              <Button title='sair' color='#3CB371' onPress={() => nav.navigate('login')}/>
+            </View>
+            
+        </View>
+      
+      <DrawerContentScrollView {...props} contentContainerStyle={styles.drawerStyle}>
+
+          {/* <DrawerItemList {...props}/> */}
+          <DrawerItem
+              label="Inicio"
+              onPress={() => nav.navigate('home')}
+              labelStyle={{color: 'white'}}
+          />
+          <DrawerItem
+              label="Configurações"
+              onPress={() => nav.navigate('settings')}
+              labelStyle={{color: 'white'}}
+          />
+          <View>
+            
+          </View>
+      </DrawerContentScrollView> 
     </View>
     );
   }

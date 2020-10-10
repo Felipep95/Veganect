@@ -1,12 +1,16 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
 const Settings = () => {
+
+    const nav = useNavigation();
     return (
         <View style={styles.container}>
-            <Text>Configurações</Text>
+            <Text style={styles.text}>Configurações</Text>
+            <Button title='Voltar' color='#3CB371' onPress={() => nav.goBack()}/>
         </View>
     )
 }

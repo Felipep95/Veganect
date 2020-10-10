@@ -81,7 +81,7 @@ const Login = () => {
                 
                 </Formik>
 
-                <TouchableOpacity style={{display: 'flex', justifyContent: 'center', marginTop:15}} onPress={() => nav.navigate("signOn")}>
+                <TouchableOpacity style={{display: 'flex', justifyContent: 'center', marginTop:15}} onPress={() => nav.navigate("signUp")}>
                     <Text style={styles.textCreatAccount}>Criar conta</Text>
                 </TouchableOpacity>
                 

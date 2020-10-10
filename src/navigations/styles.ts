@@ -7,7 +7,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#2E8B57',
     },
     labelColor: {
-        color: 'white',
+        color:'white',
+    },
+    iconColor: {
+        color:'white'
     },
     font: {
         fontSize: 5,

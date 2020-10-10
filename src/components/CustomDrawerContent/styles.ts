@@ -4,10 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: 150,
-        width: 150,
         backgroundColor: 'white',
-        borderRadius: 20,
     },
     textConfig: {
         color: 'white',
@@ -15,18 +12,20 @@ const styles = StyleSheet.create({
     },
     drawerStyle: {
         flex: 1,
-        // alignItems: 'center',
         justifyContent: 'flex-start',
     },
-    teste: {
+    avatarSettings: {
         width: 150,
-        height: 250,
+        height: 150,
     },
     userInfo: {
         marginTop: 10,
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginBottom: 5,
+    },
+    buttonColor: {
+        backgroundColor: '#3CB371',
     }
 })
 
