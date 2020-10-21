@@ -13,8 +13,8 @@ const Sweets = () => {
     return ( 
         <View style={styles.container}>
             <Toolbar title='Doces' back/>
-            <Button buttonStyle={styles.buttonColor} title="Menu" onPress={() => nav.dispatch(DrawerActions.openDrawer)}/>
-            <Button buttonStyle={styles.buttonColor} title="Sair" onPress={() => nav.goBack()}/>
+            {/* <Button buttonStyle={styles.buttonColor} title="Menu" onPress={() => nav.dispatch(DrawerActions.openDrawer)}/>
+            <Button buttonStyle={styles.buttonColor} title="Sair" onPress={() => nav.goBack()}/> */}
         </View>
     )
 }

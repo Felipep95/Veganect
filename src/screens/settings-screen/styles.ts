@@ -4,16 +4,18 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2E8B57',
+        // backgroundColor green #2E8B57
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
     },
     text: {
-        color: 'white',
+        color: 'black',
         fontSize: 20,
     },
     button: {
-        backgroundColor: '#3CB371'
+        //#3CB371 background button
+        backgroundColor: '#2E8B57'
     }
 })
 

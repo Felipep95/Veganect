@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Button, Card } from 'react-native-elements';
-import { DrawerActions, useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { DrawerActions, useNavigation, useRoute } from '@react-navigation/native';
+
 import Toolbar from '../../../components/toolbar';
 
 
@@ -15,8 +16,8 @@ const Salads = () => {
   return (
       <View style={styles.container}>
         <Toolbar title='Saladas' back/>
-        <Button buttonStyle={styles.buttonColor} title="Menu" onPress={() => nav.dispatch(DrawerActions.openDrawer)}/>
-        <Button buttonStyle={styles.buttonColor} title="Sair" onPress={() => nav.goBack()}/>
+        {/* <Button buttonStyle={styles.buttonColor} title="Menu" onPress={() => nav.dispatch(DrawerActions.openDrawer)}/>
+        <Button buttonStyle={styles.buttonColor} title="Sair" onPress={() => nav.goBack()}/> */}
 
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
           <Card containerStyle={[styles.cardContainer]}>
@@ -25,8 +26,6 @@ const Salads = () => {
             <Card.Image source={require('../../../assets/receitas/saladas/couve_maca_milhoverde.jpg')} style={styles.cardImage}/>
             <Text style={styles.text}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
           <Card containerStyle={[styles.cardContainer]}>
@@ -35,8 +34,6 @@ const Salads = () => {
             <Card.Image source={require('../../../assets/receitas/saladas/primavera_de_aspagos.jpg')} style={styles.cardImage}/>
             <Text style={styles.text}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
           <Card containerStyle={[styles.cardContainer]}>
@@ -45,8 +42,6 @@ const Salads = () => {
             <Card.Image source={require('../../../assets/receitas/saladas/proteica_vegana.jpg')} style={styles.cardImage}/>
             <Text style={styles.text}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
           <Card containerStyle={[styles.cardContainer]}>
@@ -55,8 +50,6 @@ const Salads = () => {
             <Card.Image source={require('../../../assets/receitas/saladas/repolho_roxo_beterraba.jpg')} style={styles.cardImage}/>
             <Text style={styles.text}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
           <Card containerStyle={[styles.cardContainer]}>
@@ -65,8 +58,6 @@ const Salads = () => {
             <Card.Image source={require('../../../assets/receitas/saladas/salada_mista.webp')} style={styles.cardImage}/>
             <Text style={styles.text}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
         </ScrollView>

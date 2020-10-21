@@ -20,9 +20,10 @@ const SettingsNavigation = () => (
         initialRouteName='Home'
         tabBarOptions={{
             labelStyle:{fontSize: 15},
+            // #2E8B57
             // tabStyle:{backgroundColor: '#3CB371'},
-            activeBackgroundColor: 'green',
-            inactiveBackgroundColor: '#3CB371',
+            activeBackgroundColor: '#3CB371',
+            inactiveBackgroundColor: '#2E8B57',
             activeTintColor: 'white',
             inactiveTintColor: 'white'
         }}

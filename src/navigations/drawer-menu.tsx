@@ -31,10 +31,10 @@ const DrawerNavigation = () => (
         <Drawer.Screen 
             name="home" 
             component={SettingsNavigation} 
-            options={{
-                title: 'Inicio',
-                drawerIcon: () => (<MaterialIcons name="home" size={30} color="white"/>)
-            }} 
+            // options={{
+            //     title: 'Inicio',
+            //     drawerIcon: () => (<MaterialIcons name="home" size={30} color="white"/>)
+            // }} 
         />
         
         {/* <Drawer.Screen 

@@ -8,6 +8,7 @@ export interface ToolbarProps {
     title: string;
     menu?: boolean;
     back?: boolean;
+    settings?: boolean;
 }
 
 const toolbar = (props: ToolbarProps) => {
@@ -15,8 +16,11 @@ const toolbar = (props: ToolbarProps) => {
     
     let leftComponent:{icon?:string, color?:string, size?:number, onPress?:any} = {}
     
+    
     if (props.menu) leftComponent =  {icon:'menu', color:'white', size:30, onPress: () => nav.dispatch(DrawerActions.openDrawer())}
     if (props.back) leftComponent =  {icon:'arrow-back', color:'white', size:30, onPress: () => nav.goBack()}
+
+   
 
     return (
         <Header 
