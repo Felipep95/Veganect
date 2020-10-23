@@ -19,8 +19,9 @@ const Home = () => {
         <Toolbar title='Receitas' menu />
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+                
                 <Card containerStyle={[styles.cardContainer]}>
-                    <View style={{backgroundColor: '#3CB371'}}>
+                    <View style={styles.cardTitleBackground}>
                         <Card.Title style={styles.cardTitle}>Doces</Card.Title>
                         {/* <Text style={{color: 'white', borderRadius: 10, textAlign: 'center'}} >Doces</Text> */}
                     </View>
@@ -30,8 +31,9 @@ const Home = () => {
                         <Button title='Ver Receitas' color={'#3CB371'} onPress={() => nav.navigate('doces')}/>
                     </View>
                 </Card>
+                
                 <Card containerStyle={[styles.cardContainer]}>
-                    <View style={{backgroundColor: '#3CB371'}}>
+                    <View style={styles.cardTitleBackground}>
                         <Card.Title style={styles.cardTitle}>Saladas</Card.Title>
                         {/* <Text style={{color: 'white', borderRadius: 10, textAlign: 'center'}} >Doces</Text> */}
                     </View>
@@ -41,8 +43,9 @@ const Home = () => {
                         <Button title='Ver Receitas' color={'#3CB371'} onPress={() => nav.navigate('saladas')}/>
                     </View>
                 </Card>
+                
                 <Card containerStyle={[styles.cardContainer]}>
-                    <View style={{backgroundColor: '#3CB371'}}>
+                    <View style={styles.cardTitleBackground}>
                         <Card.Title style={styles.cardTitle}>Salgados</Card.Title>
                         {/* <Text style={{color: 'white', borderRadius: 10, textAlign: 'center'}} >Doces</Text> */}
                     </View>

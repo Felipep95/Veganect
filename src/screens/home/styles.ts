@@ -4,8 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        //#2E8B57 background verde
-        backgroundColor: 'white',
+        backgroundColor: 'white', //#2E8B57
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -31,8 +30,7 @@ const styles = StyleSheet.create({
         marginBottom: 50,
     },
     cardContainer: {
-        //#3CB371
-        borderColor: '#3CB371',
+        borderColor: '#3CB371', //#3CB371
         backgroundColor: 'white',
         color: 'white',
         borderRadius: 20,
@@ -44,15 +42,18 @@ const styles = StyleSheet.create({
         width: 300,
     },
     cardTitle: {
-        // backgroundColor: 'white',
-        color: 'white',
+        color: 'white', //#3CB371
         fontSize: 20,
+        justifySelf: 'center'
+    },
+    cardTitleBackground: {
+        backgroundColor: '#3CB371',
     },
     cardText: {
         // marginTop: 25,
         color: 'black',
-        textAlign: 'center',
         fontSize: 20,
+        textAlign: 'center',
         alignItems: 'center'
     },
     cardDivider: {

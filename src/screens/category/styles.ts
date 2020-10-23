@@ -4,41 +4,55 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create ({
     container: {
         flex: 1,
-        // #2E8B57
-        backgroundColor: 'white',
+        backgroundColor: 'white', // #2E8B57
+        // alignItems: 'center',
+        // justifyContent: 'center',
     },
     text: {
         // marginTop: 25,
         color: 'black',
-        textAlign: 'center',
         fontSize: 20,
+        textAlign: 'center', 
         alignItems: 'center'
     },
     scrollViewContainer: {
-        //#2E8B57
-        backgroundColor: 'white',
+        backgroundColor: 'white', //#2E8B57
         justifyContent: 'center',
         alignContent: 'center',
         marginBottom: 50,
     },
     cardContainer: {
         borderColor: '#3CB371',
-        //#3CB371
-        backgroundColor: 'white',
+        backgroundColor: 'white', //#3CB371
         color: 'black',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
+        marginHorizontal: 10,
     },
     cardImage: {
         height: 300,
         width: 350,
     },
     cardTitle: {
-        color: 'black',
+        color: 'white',
         fontSize: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+    cardTitleBackground: {
+        backgroundColor: '#3CB371',
+    },
+    cardDivider: {
+        backgroundColor: '#3CB371',
+        marginTop: 10,
     },
     buttonColor: {
+        backgroundColor: '#3CB371',
+    },
+    buttonConfig: {
+        marginTop: 30,
         backgroundColor: '#3CB371',
     },
 })
