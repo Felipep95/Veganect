@@ -26,7 +26,7 @@ const toolbar = (props: ToolbarProps) => {
         <Header 
             leftComponent={leftComponent}
             centerComponent={{text: props.title, style:{color: 'white', textTransform:'uppercase'}}}
-            rightComponent={{icon: 'settings', color: 'white',size: 30, onPress: () => nav.navigate('settings')}}
+            rightComponent={{icon: 'exit-to-app', color: 'white',size: 30, onPress: () => nav.navigate('login')}}
             containerStyle={{backgroundColor: '#3CB371'}}
         />
     )

@@ -8,7 +8,7 @@ import Sweets from '../screens/category/sweets';
 import Home from '../screens/home';
 
 import CustomDrawerContent from '../components/CustomDrawerContent';
-import SettingsNavigation from '../navigations/settings';
+import tabBar from '../navigations/tabBar';
 import Settings from '../screens/settings-screen';
 
 import MainNavigator from '../navigations/index';
@@ -30,7 +30,7 @@ const DrawerNavigation = () => (
     >
         <Drawer.Screen 
             name="home" 
-            component={SettingsNavigation} 
+            component={tabBar} 
             // options={{
             //     title: 'Inicio',
             //     drawerIcon: () => (<MaterialIcons name="home" size={30} color="white"/>)

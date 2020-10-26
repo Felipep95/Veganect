@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import { View, Image, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Image, Text, TouchableOpacity, ActivityIndicator, ToastAndroid, Platform, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 import { Formik } from 'formik';
@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 // import input from '../../components/Input';
 
 import styles from './styles'; 
+
 
 interface User {
     email: string;
@@ -26,7 +27,15 @@ const Login = () => {
         if (data.email == 'teste@teste.com' && data.password == '123456'){
             nav.navigate('home', {email: data.email})
         }else 
-            setError('Erro: Email ou senha invalido');
+            if ( Platform.OS == 'android'){
+                ToastAndroid.show("Email ou senha incorreta", 3000);
+            }
+            else {
+                setError('Erro: Email ou senha invalido');
+                // Alert.alert('Erro', 'Email ou senha incorreta');
+            }
+            
+            
     }
 
     return (

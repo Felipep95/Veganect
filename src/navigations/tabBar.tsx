@@ -2,10 +2,12 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Settings from '../screens/settings-screen';
+import login from '../screens/login';
+import Home from '../screens/home';
+import tabBar from '../screens/settings-screen';
 import Salads from '../screens/category/salads';
 import Sweets from '../screens/category/sweets';
-import Home from '../screens/home';
+
 // import styles from '../globalStyles/styles';
 import styles from './styles';
 
@@ -34,12 +36,7 @@ const SettingsNavigation = () => (
                 tabBarIcon:() => <MaterialIcons name='home' size={30} color='white' />
             }}
         />
-        <Tab.Screen name='settings' component={Settings}
-            options={{
-                tabBarLabel: 'Configurações',
-                tabBarIcon:() => <MaterialIcons name='settings' size={30} color='white' />
-            }}
-        />
+        
     </Tab.Navigator>
 )
 

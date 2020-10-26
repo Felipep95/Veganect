@@ -11,14 +11,16 @@ import Sweets from '../screens/category/sweets';
 import Salads from '../screens/category/salads';
 import Savorys from '../screens/category/savorys';
 
-import SettingsNavigation from '../navigations/settings';
+import recipesDetails from '../screens/recipesDetails';
+
+import tabBar from '../navigations/tabBar';
 import Settings from '../screens/settings-screen';
 
 const Stack = createStackNavigator();
 
 export const MainNavigator = () => (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="home">
+        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="login">
             <Stack.Screen name="signUp" component={signUp} />
             <Stack.Screen name="login" component={Login} />
             <Stack.Screen name="home" component={Category} /> 
@@ -27,8 +29,10 @@ export const MainNavigator = () => (
             <Stack.Screen name="saladas" component={Salads} /> 
             <Stack.Screen name="salgados" component={Savorys} /> 
             
+            <Stack.Screen name="recipesDetails" component={recipesDetails} /> 
+
             <Stack.Screen name='settings' component={Settings} />
-            <Stack.Screen name="teste" component={SettingsNavigation} />
+            <Stack.Screen name="teste" component={tabBar} />
         </Stack.Navigator>
     </NavigationContainer>
 )

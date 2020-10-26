@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Image, Linking, Text, View } from 'react-native';
 import { Icon, Avatar, Divider, ListItem } from 'react-native-elements';
 import { color } from 'react-native-reanimated';
-// import {} from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 
@@ -31,12 +30,10 @@ import styles from './styles';
               />
               <Text style={styles.textConfig}>Felipe Pereira</Text>
               <Text style={styles.textConfig}>Felipepereira95@hotmail.com</Text>
-              <Button title='sair' color='#3CB371' onPress={() => nav.navigate('login')}/>
             </View>
-            
         </View>
       
-      <DrawerContentScrollView {...props} contentContainerStyle={styles.drawerStyle}>
+        <DrawerContentScrollView {...props} contentContainerStyle={styles.drawerStyle}>
 
           {/* <DrawerItemList {...props}/> */}
           <DrawerItem 
@@ -48,15 +45,21 @@ import styles from './styles';
               activeBackgroundColor='#2E8B57'
               inactiveBackgroundColor='#3CB371'
           />
-          <DrawerItem
+          {/* <DrawerItem
               label="Configurações"
               onPress={() => nav.navigate('settings')}
               labelStyle={{color: 'white'}}
               icon={() => <Icon name={'settings'} color={'white'} size={30} />}
-          />
+          /> */}
+          <View style={{alignItems: 'center'}}>
+                <Button title='sair' color='#3CB371' onPress={() => nav.navigate('login')}/>
+          </View>
           
-      </DrawerContentScrollView> 
-    </View>
+        </DrawerContentScrollView> 
+
+        
+      
+      </View>
     );
   }
 

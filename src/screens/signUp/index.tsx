@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Image, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Input } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-// import Input from '../../components/Input';
-import { Input } from 'react-native-elements';
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+
 import styles from './styles'; 
+
+// import Input from '../../components/Input';
 
 interface Data {
     name: string,
@@ -60,7 +62,7 @@ const signUp = () => {
                     
                     <Input
                         inputStyle={styles.inputConfig}
-                        placeholder="Digite a senha"
+                        placeholder="Digite sua senha"
                         placeholderTextColor="white"
                         leftIcon={{ type: 'font-awesome', name: 'lock', iconStyle:styles.iconColor }}
                         onChangeText={handleChange("password")}
@@ -70,7 +72,7 @@ const signUp = () => {
                     
                     <Input
                         inputStyle={styles.inputConfig}
-                        placeholder="Digite a senha novamente"
+                        placeholder="Digite sua senha novamente"
                         placeholderTextColor="white"
                         leftIcon={{ type: 'font-awesome', name: 'lock', iconStyle:styles.iconColor }}
                         onChangeText={handleChange("confirmPassword")}
