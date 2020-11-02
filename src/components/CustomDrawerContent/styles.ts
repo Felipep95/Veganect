@@ -20,8 +20,13 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150,
     },
+    avatarChangeSettings: {
+        color: 'white',
+        marginTop: 5,
+        marginBottom: 10,
+    },
     userInfo: {
-        marginTop: 10,
+        marginTop: 40,
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginBottom: 5,

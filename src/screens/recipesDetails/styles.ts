@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     cardTitleText: {
         color: 'black',
         fontSize: 20,
+        textAlign: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 20,
+    },
+    textItem: {
+        fontSize: 20,
+        marginLeft: 30,
     },
 
     cardText: {
@@ -43,7 +50,8 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         textAlign: 'center', 
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: 20,
     },
 })
 

@@ -11,6 +11,9 @@ import Sweets from '../screens/category/sweets';
 import Salads from '../screens/category/salads';
 import Savorys from '../screens/category/savorys';
 
+import createCategory from '../screens/createNewCategory';
+import createRecipes from '../screens/createNewRecipes';
+
 import recipesDetails from '../screens/recipesDetails';
 
 import tabBar from '../navigations/tabBar';
@@ -24,6 +27,9 @@ export const MainNavigator = () => (
             <Stack.Screen name="signUp" component={signUp} />
             <Stack.Screen name="login" component={Login} />
             <Stack.Screen name="home" component={Category} /> 
+            
+            <Stack.Screen name="createCategory" component={createCategory} /> 
+            <Stack.Screen name="createRecipes" component={createRecipes} /> 
 
             <Stack.Screen name="doces" component={Sweets} /> 
             <Stack.Screen name="saladas" component={Salads} /> 

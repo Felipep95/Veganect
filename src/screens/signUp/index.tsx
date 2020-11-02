@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+import Toolbar from '../../components/toolbar';
+
 import styles from './styles'; 
 
 // import Input from '../../components/Input';
@@ -26,8 +28,7 @@ const signUp = () => {
 
     return (
         <>
-        
-
+        <Toolbar title='Adicionar nova categoria' back />
         <Formik
             initialValues={{name: '', email: '', password: '', confirmPassword: '' }}
             validationSchema={Yup.object().shape({
@@ -87,7 +88,7 @@ const signUp = () => {
 
         </Formik>
 
-        <Button buttonStyle={styles.buttonColor} title='Voltar' onPress={() => nav.goBack()} >Voltar</Button>
+        
         </>
     )
 };

@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#3CB371',
     },
     buttonConfig: {
-        marginTop: 30,
+        marginTop: 13,
         backgroundColor: '#3CB371',
+        // borderRadius: 15,
     },
 
     // card styles
@@ -40,14 +41,17 @@ const styles = StyleSheet.create({
     cardImage: {
         height: 300,
         width: 300,
+        // borderRadius: 10,
     },
     cardTitle: {
         color: 'white', //#3CB371
         fontSize: 20,
-        justifySelf: 'center'
+        // justifySelf: 'center'
     },
     cardTitleBackground: {
         backgroundColor: '#3CB371',
+        // borderRadius: 10, 
+        marginBottom: 10,
     },
     cardText: {
         // marginTop: 25,
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
     },
     cardDivider: {
         backgroundColor: '#3CB371',
+        // marginTop: 10,
     }
 })
 

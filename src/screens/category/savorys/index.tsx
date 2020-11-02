@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 import Toolbar from '../../../components/toolbar';
 
-import CoxinhaCarneDeCaju from '../../../assets/receitas/salgados/coxinha_carne_de_caju.jpg';
+// import CoxinhaCarneDeCaju from '../../../assets/receitas/salgados/coxinha_carne_de_caju.jpg';
 import CroqueteDePalmito from '../../../assets/receitas/salgados/croquete_de_palmito.jpg';
 import EmpadaDeAlhoPoro from '../../../assets/receitas/salgados/empada_de_alho_poro.jpg';
 import NhoqueDeBatata from '../../../assets/receitas/salgados/nhoque_de_batata.jpg';
@@ -28,7 +28,7 @@ const Savory = () => {
         {
             id: "1",
             title: "Coxinha de carne de caju",
-            image: CoxinhaCarneDeCaju,
+            image: EmpadaDeAlhoPoro,
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         },
         {
@@ -78,7 +78,7 @@ const Savory = () => {
                             {Recipe.description} 
                         </Text>
                         <View style={styles.buttonConfig}>
-                            <Button title='Ver ingredientes e modo de preparo' color={'#3CB371'} onPress={() => nav.navigate('doces')}/>
+                            <Button title='Ver ingredientes e modo de preparo' color={'#3CB371'} onPress={() => nav.navigate('recipesDetails')}/>
                         </View>
                     </Card>
                 )}

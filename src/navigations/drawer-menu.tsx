@@ -2,15 +2,18 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { MaterialIcons } from '@expo/vector-icons';
 
+import Home from '../screens/home';
+
 import Salads from '../screens/category/salads';
 import Savory from '../screens/category/savorys';
 import Sweets from '../screens/category/sweets';
-import Home from '../screens/home';
+
+import createnewCategory from '../screens/createNewCategory';
+import createNewRecipe from '../screens/createNewRecipes';
 
 import CustomDrawerContent from '../components/CustomDrawerContent';
 import tabBar from '../navigations/tabBar';
 import Settings from '../screens/settings-screen';
-
 import MainNavigator from '../navigations/index';
 
 import styles from './styles';
@@ -26,49 +29,35 @@ const DrawerNavigation = () => (
             activeTintColor: 'white',
             activeBackgroundColor: 'green',
         }}
+        
         drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
         <Drawer.Screen 
             name="home" 
             component={tabBar} 
-            // options={{
-            //     title: 'Inicio',
-            //     drawerIcon: () => (<MaterialIcons name="home" size={30} color="white"/>)
-            // }} 
+            options={{
+                title: 'Inicio',
+                drawerIcon: () => (<MaterialIcons name="home" size={30} color="white"/>)
+            }} 
         />
         
         {/* <Drawer.Screen 
-            name="salads" 
-            component={Salads} 
+            name="Cadastrar categoria" 
+            component={createnewCategory} 
             options={{
                 title: 'Saladas',
                drawerIcon: () => (<MaterialIcons name="local-dining" size={30} color="white"/>)
             }} 
         />
         <Drawer.Screen 
-            name="savorys" 
-            component={Savory} 
+            name="Cadastrar receita" 
+            component={createNewRecipe} 
             options={{
                 title: 'Salgados',
                 drawerIcon: () => (<MaterialIcons name="local-pizza" size={30} color="white"/>)
             }} 
-        />
-        <Drawer.Screen 
-            name="sweets" 
-            component={Sweets}  
-            options={{
-                title: 'Doces',
-                drawerIcon: () => (<MaterialIcons name="cake" size={30} color="white"/>)
-            }} 
-        />
-        <Drawer.Screen 
-            name="configurações" 
-            component={Settings}  
-            options={{
-                title: 'Configurações',
-                drawerIcon: () => (<MaterialIcons name="settings" size={30} color="white"/>)
-            }} 
         /> */}
+        
     </Drawer.Navigator>
 )
 

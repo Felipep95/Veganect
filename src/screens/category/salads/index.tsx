@@ -70,7 +70,7 @@ const Salads = () => {
           renderItem={({item: Recipe}) => (
             <Card containerStyle={[styles.cardContainer]}>
               <View style={styles.cardTitleBackground}>
-                <Card.Title style={styles.cardTitle}>{Recipe.title} </Card.Title>
+                <Card.Title style={styles.cardTitle}> {Recipe.title} </Card.Title>
               </View>
               <Card.Divider style={styles.cardDivider}/>
               <Card.Image source={Recipe.image} style={styles.cardImage}/>

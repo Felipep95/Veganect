@@ -32,7 +32,7 @@ const styles = StyleSheet.create ({
     },
     cardImage: {
         height: 300,
-        width: 350,
+        width: 300,
     },
     cardTitle: {
         color: 'white',
@@ -43,7 +43,9 @@ const styles = StyleSheet.create ({
     },
     cardTitleBackground: {
         backgroundColor: '#3CB371',
-    },
+        // borderRadius: 20,
+        
+    }, 
     cardDivider: {
         backgroundColor: '#3CB371',
         marginTop: 10,

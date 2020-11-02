@@ -79,7 +79,7 @@ const Sweets = () => {
                             {Recipe.description} 
                         </Text>
                         <View style={styles.buttonConfig}>
-                            <Button title='Ver ingredientes e modo de preparo' color={'#3CB371'} onPress={() => nav.navigate('doces')}/>
+                            <Button title='Ver ingredientes e modo de preparo' color={'#3CB371'} onPress={() => nav.navigate('recipesDetails')}/>
                         </View>
                     </Card>
                 )}

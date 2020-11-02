@@ -27,6 +27,7 @@ const Home = () => {
                     </View>
                     <Card.Divider style={styles.cardDivider}/>
                     <Card.Image source={require('../../assets/receitas/doces/doces_background_main.jpg')} style={styles.cardImage}/>
+                    {/* <Card.Divider style={styles.cardDivider}/> */}
                     <View style={styles.buttonConfig}>
                         <Button title='Ver Receitas' color={'#3CB371'} onPress={() => nav.navigate('doces')}/>
                     </View>
