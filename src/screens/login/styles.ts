@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     textConfig: {
         color: 'white',
         fontSize: 30,
-        marginBottom: 30,
+        marginBottom: 10,
     },
     imageConfig: {
         width: 150,
         height: 150,
-        marginTop: -80
+        marginTop: -70
     },
     // remover depois
     inputConfig: {

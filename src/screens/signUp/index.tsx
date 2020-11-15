@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import Toolbar from '../../components/toolbar';
 
 import styles from './styles'; 
+import firebase from 'firebase';
 
 // import Input from '../../components/Input';
 
@@ -19,16 +20,23 @@ interface Data {
     confirmPassword: string,
 }
 
+
+
 const signUp = () => {
     const nav = useNavigation();
 
     const sendData = ( data: Data ) => {
         nav.navigate("login")
     }
+    // const sign_up = async (Data) => {
+    //     firebase.auth().createUserWithEmailAndPassword(Data.email, Data.password)
+    //     const nav = useNavigation();
+    //     nav.navigate('login');
+    // }
 
     return (
         <>
-        <Toolbar title='Adicionar nova categoria' back />
+        <Toolbar title='Cadastro de usuário' back />
         <Formik
             initialValues={{name: '', email: '', password: '', confirmPassword: '' }}
             validationSchema={Yup.object().shape({
@@ -37,6 +45,7 @@ const signUp = () => {
                 password: Yup.string().required('O campo senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!'),
                 confirmPassword: Yup.string().required('O campo confirmar senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!')
             })}
+            // onSubmit={sendData}
             onSubmit={sendData}
         >
             { ({values, handleChange, errors, handleSubmit, isSubmitting, isValid, touched, handleBlur}) => (
@@ -88,7 +97,6 @@ const signUp = () => {
 
         </Formik>
 
-        
         </>
     )
 };

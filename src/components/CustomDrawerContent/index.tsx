@@ -48,7 +48,6 @@ const openPhotoLibrary = async (setFieldValue) => {
 }
 
 // /\ FALTA TERMINAR
-    
     function CustomDrawerContent(props: any) {
 
     const nav = useNavigation();
