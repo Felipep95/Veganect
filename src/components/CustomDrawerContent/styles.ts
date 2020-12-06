@@ -3,10 +3,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: 'white',
         alignContent: 'center',
-        
     },
     textConfig: {
         color: 'white',
@@ -14,13 +12,14 @@ const styles = StyleSheet.create({
     },
     drawerStyle: {
         flex: 1,
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
     },
     avatarSettings: {
         width: 150,
         height: 150,
     },
     avatarChangeSettings: {
+        fontSize: 14,
         color: 'white',
         marginTop: 5,
         marginBottom: 10,
@@ -33,6 +32,10 @@ const styles = StyleSheet.create({
     },
     buttonColor: {
         backgroundColor: '#3CB371',
+    },
+    exitButton: {
+        alignItems: 'center', 
+        marginTop: 100
     }
 })
 

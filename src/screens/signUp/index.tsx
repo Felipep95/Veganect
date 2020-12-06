@@ -19,9 +19,6 @@ interface Data {
     password: string,
     confirmPassword: string,
 }
-
-
-
 const signUp = () => {
     const nav = useNavigation();
 

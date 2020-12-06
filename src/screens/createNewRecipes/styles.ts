@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'center',
         color: 'black',
         backgroundColor: '#F0FFF0', // cor do background da tela de cadastro de receitas    (////#2E8B57 cor alternativa)

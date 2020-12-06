@@ -4,10 +4,13 @@ import { Card } from 'react-native-elements';
 import { DrawerActions, useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
+import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from 'expo-ads-admob';
+
 import Toolbar from '../../components/toolbar';
 import styles from './styles';
 import Sweets from '../category/sweets';
 
+    
 const Home = () => {
     const nav = useNavigation();
     const route = useRoute();
@@ -57,6 +60,26 @@ const Home = () => {
                     </View>
                 </Card>
             </ScrollView>
+            <AdMobBanner 
+                adUnitID = "ca-app-pub-3940256099942544/6300978111"
+                bannerSize = "fullBanner"
+            />
+           <View style={{flexDirection: 'row'}}>
+           <Button  title="Ver Banner" color={'#3CB371'} onPress={async () => {
+                AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712");
+                await AdMobInterstitial.requestAdAsync();
+                AdMobInterstitial.showAdAsync();
+            }} />
+            <Button  title="Ver Banner Recompensa" color={'#3CB371'} onPress={async () => {
+                AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
+                await AdMobRewarded.requestAdAsync();
+                AdMobRewarded.showAdAsync();
+            }} />
+           </View>
+            
+            
+
+            
         </View>
         </>
      )

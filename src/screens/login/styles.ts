@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#2E8B57',
+        // backgroundColor: '#C6FF66',
     },
     placeHolderColor: {
         color: 'white',
