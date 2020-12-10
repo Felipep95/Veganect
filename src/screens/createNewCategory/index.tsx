@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import {  Alert, Image, ToastAndroid, View, Platform, ActivityIndicator }  from "react-native";
 import { Input,Button } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
@@ -11,6 +11,7 @@ import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 
 import firebase from "firebase";
+import 'firebase/firestore';
 
 import Toolbar from "../../components/toolbar";
 
@@ -20,50 +21,79 @@ import styles from "./styles";
 
 interface Data {
   name: string;
-  image: string;
 }
 
-const handleCreateNewCategory = (data: Data) => {
-  const nav = useNavigation();
-  nav.navigate("home");
-};
-
-const openPhotoLibrary = async (setFieldValue) => {
-  const response = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-
-  if (Platform.OS == "web" || response.granted) {
-    const photo = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      aspect: [16, 9],
-      base64: true,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 0.5,
-    });
-
-    if (!photo.cancelled) {
-      const image =
-        Platform.OS == "web"
-          ? photo.uri
-          : "data:image/jpge;base64," + photo.base64;
-      setFieldValue("image", image);
-    }
-  } else {
-    ToastAndroid.show(
-      "Necessário permissão para acessar album de fotos",
-      ToastAndroid.LONG
-    );
-    // console.log('o dispositivo precisa de permissão para acessar o album de fotos')
-  }
-};
-
-const NewCategory = ( () => {
-  const db = firebase.database();
-  db.ref('nome').set('Felipe');
-  
-})
-// const db = firebase.database();
+interface Image {
+  imgBlob: Blob;
+  imgUri: string;
+}
 
 const CreateNewCategory = () => {
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+  const nav = useNavigation();
+  const [image, setImage] = useState<Image>({} as Image);
+  
+  const openPhotoLibrary = async () => {
+    const response = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  
+    if (Platform.OS == "web" || response.granted) {
+      const photo = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [16, 9],
+        base64: true,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5,
+      });
+
+      
+  
+      if (!photo.cancelled) {
+        const image = await fetch(photo.uri);
+        const blobImage = await image.blob();
+
+        const newImage = {
+          imgBlob: blobImage,
+          imgUri: photo.uri,
+        }
+
+        setImage(newImage);
+      }
+    } else {
+      ToastAndroid.show(
+        "Necessário permissão para acessar album de fotos",
+        ToastAndroid.LONG
+      );
+      // console.log('o dispositivo precisa de permissão para acessar o album de fotos')
+    }
+  };
+  
+  const handleCreateNewCategory = async (data: Data) => {
+    console.log("entrou")
+    const newCategory = await db.collection('category').doc();
+
+    const refImage = storage
+        .ref()
+        .child(`category/${newCategory.id}`);
+
+     await refImage.put(image.imgBlob);
+      let imageURL = '';
+  
+     await refImage.getDownloadURL().then(url => {
+          if (url) {
+            imageURL = url;
+          }
+        });
+
+  
+      await newCategory.set({
+        name: data.name,
+        imageURL
+      });
+
+      nav.navigate("home");
+    
+  }
     
   return (
     <>
@@ -71,7 +101,7 @@ const CreateNewCategory = () => {
       {/* <View style={{flex:0.5, width: '100%', padding: 30}}>  */}
       <View style={styles.container}>
         <Formik
-          initialValues={{ name: "", image: "" }}
+          initialValues={{ name: "" }}
           onSubmit={handleCreateNewCategory}
         >
           {({
@@ -90,8 +120,8 @@ const CreateNewCategory = () => {
                 >
                   <Image
                     source={
-                      values.image
-                        ? { uri: values.image }
+                      image.imgUri
+                        ? { uri: image.imgUri }
                         : require("../../../assets/images/carrot.png")
                     }
                     style={styles.imageConfig}
@@ -122,7 +152,7 @@ const CreateNewCategory = () => {
                   title="Salvar"
                   disabled={!isValid}
                   buttonStyle={styles.buttonColor}
-                  onPress={NewCategory}
+                  onPress={() => handleSubmit()}
                 ></Button>
               )}
             </View>

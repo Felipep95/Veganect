@@ -22,9 +22,8 @@ const Login = () => {
     
     const nav = useNavigation();
     const [error, setError] = useState('');
-    const [openModal, setOpenModal] = useState(false);
 
-    async function signIn (this: any, data: User)  {
+    async function signIn (data: User)  {
         firebase.auth().signInWithEmailAndPassword(data.email, data.password)
         .then(() => {
             nav.navigate('home');
@@ -37,22 +36,14 @@ const Login = () => {
             Alert.alert('Erro', 'Erro: Email ou senha incorreta');
         })
     }
-    
-    const signUp = async (user:User) => {
-        setOpenModal(false);
-        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-        .then(() => ToastAndroid.show('Usuário cadastrado com sucesso', ToastAndroid.SHORT))
-        .catch(erro => {
-            switch(erro.code) {
-                case 'auth/email-already-in-use': ToastAndroid.show("Erro: Email já está em uso",ToastAndroid.SHORT); break;
-                default: ToastAndroid.show("Falhou", ToastAndroid.SHORT)
-            }
-            
-        });
+
+    const registerScreen = () => {
+        nav.navigate('signUp')
     }
 
     return (
         <>
+        
             <View style={styles.container}>
 
                     <Image 
@@ -98,36 +89,18 @@ const Login = () => {
                             { !isSubmitting && <Button title='Login' disabled={!isValid} buttonStyle={styles.buttonColor} onPress={() => handleSubmit()}></Button>}
                             {error != "" && <Text style={styles.errors}>{error}</Text>}
 
-                            <TouchableOpacity onPress={() => {setOpenModal(true); }}>
-                                <Text style={styles.textCreatAccount}>Não possui conta? Clique aqui para se cadastrar</Text>
-                            </TouchableOpacity>
+                            
                      </View>
                      
                     )}
                 </Formik>
+
+                <TouchableOpacity onPress={registerScreen}>
+                    <Text style={styles.textCreatAccount}>Não possui conta? Clique aqui para se cadastrar</Text>
+                </TouchableOpacity>
+
                 
                 </View> 
-                
-                <Formik
-                    initialValues={{email:'', password:''}}
-                    onSubmit={signUp}
-                    validationSchema={Yup.object().shape({
-                        email: Yup.string().email('Campo precisa ser um email').required('Email obrigatório'),
-                        password: Yup.string().min(6,'Mínimo 6 caracteres').required('Senha obrigatória')
-                    })}
-                >
-                    {({ handleSubmit, handleChange, handleBlur, touched, errors }) => (
-                        <AlertCustom 
-                            onCancel={() => setOpenModal(false)}
-                            onConfirm={handleSubmit}
-                            visible={openModal}
-                            title="Novo usuário">
-                            <Text>Informe os dados do usuário</Text>
-                            <AlertInput placeholder="Digite seu email" onChangeText={handleChange('email')} onBlur={handleBlur('email')} touched={touched.email} error={errors.email} />
-                            <AlertInput placeholder="Digite sua senha" onChangeText={handleChange('password')} onBlur={handleBlur('password')} touched={touched.password} error={errors.password}  password noBorder/>
-                        </AlertCustom> 
-                    )}
-                </Formik>
         </>
     )
 };

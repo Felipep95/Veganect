@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Image, Text, ToastAndroid, ActivityIndicator } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 
@@ -10,6 +10,7 @@ import Toolbar from '../../components/toolbar';
 
 import styles from './styles'; 
 import firebase from 'firebase';
+import 'firebase/firestore';
 
 // import Input from '../../components/Input';
 
@@ -19,17 +20,36 @@ interface Data {
     password: string,
     confirmPassword: string,
 }
+
+interface User {
+    email: string;
+    password: string;
+    name: string;
+}
+
 const signUp = () => {
     const nav = useNavigation();
+    const dbFiresote = firebase.firestore();
 
-    const sendData = ( data: Data ) => {
-        nav.navigate("login")
+    const signUp = async (user:User) => {
+        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+        .then(userCreated => {
+                dbFiresote.collection('users').doc(userCreated.user?.uid).set({
+                    name: user.name,
+                }).then(() => {
+                    firebase.auth().signOut();
+                    nav.navigate("login");
+                })
+            ToastAndroid.show('Usuário cadastrado com sucesso', ToastAndroid.SHORT);
+        })
+        .catch(erro => {
+            switch(erro.code) {
+                case 'auth/email-already-in-use': ToastAndroid.show("Erro: Email já está em uso",ToastAndroid.SHORT); break;
+                default: ToastAndroid.show("Falhou", ToastAndroid.SHORT)
+            }
+            
+        });
     }
-    // const sign_up = async (Data) => {
-    //     firebase.auth().createUserWithEmailAndPassword(Data.email, Data.password)
-    //     const nav = useNavigation();
-    //     nav.navigate('login');
-    // }
 
     return (
         <>
@@ -42,8 +62,7 @@ const signUp = () => {
                 password: Yup.string().required('O campo senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!'),
                 confirmPassword: Yup.string().required('O campo confirmar senha é obrigatório!').min(6, 'A senha precisa ter no mínimo 6 caracteres!')
             })}
-            // onSubmit={sendData}
-            onSubmit={sendData}
+            onSubmit={values => signUp(values)}
         >
             { ({values, handleChange, errors, handleSubmit, isSubmitting, isValid, touched, handleBlur}) => (
                 <View style={styles.container}>
