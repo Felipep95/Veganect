@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import {  Alert, Image, ToastAndroid, View, Platform, ActivityIndicator }  from "react-native";
 import { Input,Button } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
@@ -46,8 +46,6 @@ const CreateNewCategory = () => {
         quality: 0.5,
       });
 
-      
-  
       if (!photo.cancelled) {
         const image = await fetch(photo.uri);
         const blobImage = await image.blob();
@@ -56,7 +54,6 @@ const CreateNewCategory = () => {
           imgBlob: blobImage,
           imgUri: photo.uri,
         }
-
         setImage(newImage);
       }
     } else {

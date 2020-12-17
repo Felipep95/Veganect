@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TextInput , View, Platform, ToastAndroid, ActivityIndicator, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
@@ -10,22 +10,32 @@ import * as Yup from 'yup';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 
+import firebase from "firebase";
+import 'firebase/firestore';
+
 import Toolbar from '../../components/toolbar';
 
 import styles from './styles';
 
 interface Data {
     id: string;
-    image: string;
     name: string;
     category: string;
     ingredients: string;
     prepareMode: string;
 }
 
+interface Image {
+    imgBlob: Blob;
+    imgUri: string;
+}
+
 const HandleCreateNewRecipe = (data: Data) => {
+    const db = firebase.firestore();
+    const storage = firebase.storage();
     const nav  = useNavigation();
-    nav.navigate("home");
+    const [image, setImage] = useState<Image>({} as Image);
+    // nav.navigate("home");
 }
 
 const openPhotoLibrary = async (setFieldValue) => {
@@ -39,16 +49,21 @@ const openPhotoLibrary = async (setFieldValue) => {
             base64: true,
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             quality: 0.5
-        })
+        });
 
         if (!photo.cancelled) {
-            const image = (Platform.OS == 'web' ? photo.uri :'data:image/jpge;base64,'+ photo.base64 );
-            setFieldValue("image", image)
+            const image = await fetch(photo.uri);
+            const blobImage = await image.blob();
+
+            const newImage = {
+              imgBlob: blobImage,
+              imgUri: photo.uri,
+            }
+            // setImage(newImage); //corrigir erro
         }
-    }
-    else {
-        ToastAndroid.show('Necessário permissão para acessar album de fotos', ToastAndroid.LONG);
-        // console.log('o dispositivo precisa de permissão para acessar o album de fotos')
+    } else {
+        ToastAndroid.show('Necessário permissão para acessar album de fotos', 
+        ToastAndroid.LONG);
     }
 }
 
